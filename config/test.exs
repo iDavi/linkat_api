@@ -20,8 +20,6 @@ config :linkat_api, LinkatApiWeb.Endpoint,
   secret_key_base: "4ADxSINFCMGq+zupruRxNFpabhtUV+atDTQtwyJgl/MJ6Lo/Vnng8OEvtpafzP37",
   server: false
 
-# In test we don't send emails
-config :linkat_api, LinkatApi.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false

@@ -12,8 +12,6 @@ defmodule LinkatApi.Application do
       LinkatApi.Repo,
       {DNSCluster, query: Application.get_env(:linkat_api, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: LinkatApi.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: LinkatApi.Finch},
       # Start a worker by calling: LinkatApi.Worker.start_link(arg)
       # {LinkatApi.Worker, arg},
       # Start to serve requests, typically the last entry
