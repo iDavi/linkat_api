@@ -3,7 +3,7 @@ defmodule LinkatApiWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug LinkatApi.Auth
+    plug LinkatApiWeb.Auth
   end
 
   scope "/api", LinkatApiWeb do
@@ -26,7 +26,6 @@ defmodule LinkatApiWeb.Router do
       pipe_through [:fetch_session, :protect_from_forgery]
 
       live_dashboard "/dashboard", metrics: LinkatApiWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
 end

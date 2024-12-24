@@ -1,11 +1,12 @@
-defmodule LinkatApi.Auth do
+defmodule LinkatApiWeb.Auth do
   import Plug.Conn
 
   def init(default), do: default
 
   def call(conn, _) do
     request_token = get_authorization_header(conn)
-    required_token = Application.get_env(:linkat_api, LinkatApiWeb.Endpoint)[:authenticationToken]
+    required_token = Application.get_env(:linkat_api, LinkatApiWeb.Auth)[:authenticationToken]
+    IO.inspect(required_token)
     if request_token == required_token do
       conn
     else
