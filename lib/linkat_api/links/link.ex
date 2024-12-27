@@ -15,6 +15,7 @@ defmodule LinkatApi.Links.Link do
     |> cast(params, @params)
     |> validate_required(@params)
     |> validate_length(:nickname, min: 2, max: 20)
+    |> validate_length(:url, max: 200)
     |> validate_format(:nickname, ~r(^[a-zA-Z0-9_-]*$))
     |> validate_url(:url)
     |> unique_constraint(:nickname, name: :links_nickname_index)

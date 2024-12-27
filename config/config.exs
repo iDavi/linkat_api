@@ -32,14 +32,10 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :ex_aws,
-  access_key_id: System.get_env("AWS_ACCESS_KEY_ID"),
-  secret_access_key: System.get_env("AWS_SECRET_ACCESS_KEY"),
-  region: "sa-east-1"
+config :linkat_api, LinkatApiWeb.Plugs.Captcha,
+  secret: System.get_env("RECAPTCHA_SECRET_KEY_LINKAT")
 
-config :linkat_api, LinkatApiWeb.Auth,
-  authenticationToken: System.get_env("LINKAT_API_AUTH_TOKEN")
-
+config :tesla, adapter: Tesla.Adapter.Mint
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

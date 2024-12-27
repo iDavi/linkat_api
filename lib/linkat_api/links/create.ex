@@ -1,4 +1,5 @@
 defmodule LinkatApi.Links.Create do
+
   alias LinkatApi.Repo
   alias LinkatApi.Links.Link
 

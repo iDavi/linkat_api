@@ -1,13 +1,12 @@
 defmodule LinkatApiWeb.LinksController do
   use LinkatApiWeb, :controller
-
+  plug LinkatApiWeb.Plugs.Captcha when action in [:create]
 
   alias LinkatApi.Links
   alias Links.Link
 
   action_fallback LinkatApiWeb.FallbackController
   def create(conn, params) do
-
     with{:ok, %Link{} = link} <- Links.create(params) do
       conn
       |> put_status(:created)

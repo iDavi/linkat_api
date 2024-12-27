@@ -3,7 +3,7 @@ defmodule LinkatApiWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug LinkatApiWeb.Auth
+
   end
 
   scope "/api", LinkatApiWeb do
