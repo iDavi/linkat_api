@@ -4,7 +4,7 @@ defmodule LinkatApi.Application do
   @moduledoc false
 
   use Application
-
+  alias LinkatApi.Links
   @impl true
   def start(_type, _args) do
     children = [
@@ -12,6 +12,7 @@ defmodule LinkatApi.Application do
       LinkatApi.Repo,
       {DNSCluster, query: Application.get_env(:linkat_api, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: LinkatApi.PubSub},
+      {Links.Cache, []},
       # Start a worker by calling: LinkatApi.Worker.start_link(arg)
       # {LinkatApi.Worker, arg},
       # Start to serve requests, typically the last entry

@@ -1,7 +1,5 @@
 defmodule LinkatApiWeb.LinksJSON do
 
-  alias LinkatApi.CatPics.Client
-
 
   def create(%{link: link}) do
     %{
