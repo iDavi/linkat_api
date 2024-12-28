@@ -39,7 +39,7 @@ defmodule LinkatApiWeb.Endpoint do
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
-  plug CORSPlug, origin: ["http://127.0.0.1:4200"]
+  plug CORSPlug, origin: [System.get_env("FRONTEND-ORIGIN")]
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
