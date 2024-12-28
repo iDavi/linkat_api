@@ -2,7 +2,10 @@ import Config
 
 
 config :linkat_api, LinkatApi.Repo,
-  url: System.get_env("DATABASE_URL"),
+  #url: System.get_env("DATABASE_URL"),
+  hostname: System.get_env("DATABASE_HOST"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  username: "postgres",
   database: "linkat_db",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
