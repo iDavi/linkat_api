@@ -9,6 +9,7 @@ defmodule LinkatApi.Links.Cache do
       fn -> %{} end,
       name: __MODULE__
     )
+
   end
 
   defp create_links_map(all_links) do
