@@ -6,7 +6,7 @@ defmodule LinkatApiWeb.Router do
 
   end
 
-  scope "/api", LinkatApiWeb do
+  scope "/", LinkatApiWeb do
     pipe_through :api
 
     resources "/links", LinksController, only: [:create]
