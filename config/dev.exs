@@ -24,7 +24,8 @@ config :linkat_api, LinkatApiWeb.Endpoint,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "mwIrLHYOIEt+9BgZVA0SvaJyLuasQj7de9hIr5L54cjMrGGcrVF563aRHYwuYjBh",
-  watchers: []
+  watchers: [],
+  allow_cors: ["http://127.0.0.1:4200", "http://localhost:4200"]
 
 # ## SSL Support
 #

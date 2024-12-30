@@ -39,7 +39,7 @@ defmodule LinkatApiWeb.Endpoint do
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
-  plug CORSPlug, origin: ["https://linkat.fun", "https://www.linkat.fun", "https://127.0.0.1"]
+  plug CORSPlug, origin:  Application.compile_env(:linkat_api, LinkatApiWeb.Endpoint)[:allow_cors]
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
