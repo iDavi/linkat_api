@@ -42,7 +42,6 @@ defmodule LinkatApiWeb do
         layouts: [html: LinkatApiWeb.Layouts]
 
       import Plug.Conn
-      import LinkatApiWeb.Gettext
 
       unquote(verified_routes())
     end
