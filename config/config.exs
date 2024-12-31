@@ -13,14 +13,12 @@ config :linkat_api,
 
 # Configures the endpoint
 config :linkat_api, LinkatApiWeb.Endpoint,
-  url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [json: LinkatApiWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: LinkatApi.PubSub,
-  live_view: [signing_salt: "1unhSCiA"]
+  pubsub_server: LinkatApi.PubSub
 
 
 
