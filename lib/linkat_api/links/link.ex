@@ -10,6 +10,7 @@ defmodule LinkatApi.Links.Link do
     timestamps()
   end
 
+  @spec changeset(%__MODULE__{} | map(), map()) :: Ecto.Changeset.t()
   def changeset(link \\%__MODULE__{}, params) do
     link
     |> cast(params, @params)
@@ -22,7 +23,8 @@ defmodule LinkatApi.Links.Link do
   end
 
   # validate_url function source: https://gist.github.com/atomkirk/74b39b5b09c7d0f21763dd55b877f998
-  def validate_url(changeset, field, opts \\ []) do
+  @spec validate_url(Ecto.Changeset.t(), atom()) :: Ecto.Changeset.t()
+  defp validate_url(changeset, field, opts \\ []) do
     validate_change(changeset, field, fn _, value ->
       case URI.parse(value) do
         %URI{scheme: nil} ->
