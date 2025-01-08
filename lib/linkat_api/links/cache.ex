@@ -26,7 +26,7 @@ defmodule LinkatApi.Links.Cache do
   @spec add_link(map()) :: {:ok, map()}
   def add_link(link) do
     Agent.update(__MODULE__, fn curr_map ->
-      Map.put(curr_map, Map.get(curr_map, :nickname), link)
+      Map.put(curr_map, Map.get(link, :nickname), link)
     end)
     {:ok, link}
   end

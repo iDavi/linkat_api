@@ -13,7 +13,7 @@ defmodule LinkatApi.Links do
     end
   end
 
-  @spec get(map()) :: {:ok, map()}
+  @spec get(String.t()) :: {:ok, any()} | {:error, :not_found}
   def get(nickname) do
     case Cache.get_by_nickname(nickname) do
       nil -> {:error, :not_found}
